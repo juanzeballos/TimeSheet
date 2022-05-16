@@ -14,6 +14,6 @@ public interface ProyectoPersonaDao extends JpaRepository<ProyectoPersona, Strin
 	
 	@Query(value = "SELECT * FROM ProyectoPersona as pp INNER JOIN pp.claveProyecto as p"
 			+ "where pp.usuario=:usuario", nativeQuery = true)
-	public List<ProyectoPersona> findAll1(@Param(value = "usuario") String usuario);
+	public List<Object[]> getProyectosByUsuario(@Param(value = "usuario") String usuario);
 
 }

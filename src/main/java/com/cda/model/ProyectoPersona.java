@@ -1,5 +1,5 @@
-package com.cda.model;
 
+package com.cda.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Personas")
+@Table(name = "dbo.PERSONAS")
 public class ProyectoPersona {
 
 	@Id

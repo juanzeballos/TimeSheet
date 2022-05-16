@@ -16,5 +16,8 @@ public class ProyectoPersonaService {
 
 		return pp;
 	}
+	public List<Object[]> getProyectosByUsuario(String usuario) {
+	return proyectoPersonaDao.getProyectosByUsuario(usuario);
+	}
 
 }
