@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "dbo.PERSONAS_DISPONIBILIDADES")
-public class Personas_Disponibilidades {
+public class PersonasDisponibilidades {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
