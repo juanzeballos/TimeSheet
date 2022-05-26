@@ -1,18 +1,13 @@
-package com.cda.dto;
+package com.cda.ts.dto;
 
-import com.cda.model.Disponibilidad;
+import java.util.List;
 
-public class DisponibilidadJsonDto {
+public class PPJsonDto {
 	private static final long serialVersionUID = 1L;
 
 	private HeaderDto header;
-	private Disponibilidad data;
+	private List<PPDto> data;
 	private InfoDto info;
-
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 
 	public HeaderDto getHeader() {
 		return header;
@@ -22,12 +17,12 @@ public class DisponibilidadJsonDto {
 		this.header = header;
 	}
 
-	public Disponibilidad getData() {
+	public List<PPDto> getData() {
 		return data;
 	}
 
-	public void setData(Disponibilidad usuarioDto) {
-		this.data = usuarioDto;
+	public void setData(List<PPDto> data) {
+		this.data = data;
 	}
 
 	public InfoDto getInfo() {
@@ -36,6 +31,10 @@ public class DisponibilidadJsonDto {
 
 	public void setInfo(InfoDto info) {
 		this.info = info;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

@@ -1,10 +1,13 @@
-package com.cda.model;
+package com.cda.ts.model;
+
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -12,10 +15,8 @@ import javax.persistence.Table;
 public class Proyecto {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 	@Column(name = "PRO_CODIGO")
-	private String codigo;
+	private Long codigo;
 
 	@Column(name = "PRO_DESCRIPCION")
 	private String descripcion;
@@ -26,19 +27,12 @@ public class Proyecto {
 	@Column(name = "PRO_PERSONA_LIDER")
 	private String liderProyecto;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getCodigo() {
+	
+	public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(String codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 

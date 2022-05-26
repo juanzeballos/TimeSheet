@@ -1,4 +1,4 @@
-package com.cda.model;
+package com.cda.ts.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,17 +12,17 @@ import javax.persistence.Table;
 public class Persona {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private String id;
 	@Column(name = "PER_DESCRIPCION")
 	private String nombre;
 	@Column(name = "PER_CODIGO")
 	private String usuario;
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

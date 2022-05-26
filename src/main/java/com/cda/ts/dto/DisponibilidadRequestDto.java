@@ -1,4 +1,4 @@
-package com.cda.dto;
+package com.cda.ts.dto;
 
 public class DisponibilidadRequestDto {
 	private String codigo;

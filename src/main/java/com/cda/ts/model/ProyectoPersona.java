@@ -1,28 +1,25 @@
 
-package com.cda.model;
+package com.cda.ts.model;
+
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "dbo.PERSONAS")
-public class ProyectoPersona {
+@Table(name = "PROYECTOS_FASES_PERSONAS")
+public class ProyectoPersona implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@ManyToOne
-	@JoinColumn(name = "PRO_CODIGO", referencedColumnName = "codigo")
-	private Proyecto claveProyecto;
-	
+	@Column(name = "PPE_PROYECTO")
+	private Long claveProyecto;
+
 	@Column(name = "PPE_FASE")
 	private String fase;
+	
 	@Column(name = "PPE_PERSONA")
 	private String usuario;
 	@Column(name = "PPE_FECHA_DESDE")
@@ -32,19 +29,11 @@ public class ProyectoPersona {
 	@Column(name = "PPE_TOTAL_HS_REALES")
 	private String horas;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Proyecto getClaveProyecto() {
+	public Long getClaveProyecto() {
 		return claveProyecto;
 	}
 
-	public void setClaveProyecto(Proyecto claveProyecto) {
+	public void setClaveProyecto(Long claveProyecto) {
 		this.claveProyecto = claveProyecto;
 	}
 

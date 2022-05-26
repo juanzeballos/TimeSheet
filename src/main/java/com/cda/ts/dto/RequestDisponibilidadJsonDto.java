@@ -1,15 +1,15 @@
-package com.cda.dto;
+package com.cda.ts.dto;
 
 import java.io.Serializable;
 
-public class RequestPPJsonDto implements Serializable {
+public class RequestDisponibilidadJsonDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private HeaderDto header;
-	private PPRequestDto data;
+	private DisponibilidadRequestDto data;
 	private InfoDto info;
 
-	public RequestPPJsonDto() {
+	public RequestDisponibilidadJsonDto() {
 		super();
 	}
 
@@ -25,11 +25,11 @@ public class RequestPPJsonDto implements Serializable {
 		this.header = header;
 	}
 
-	public PPRequestDto getData() {
+	public DisponibilidadRequestDto getData() {
 		return data;
 	}
 
-	public void setData(PPRequestDto data) {
+	public void setData(DisponibilidadRequestDto data) {
 		this.data = data;
 	}
 
@@ -39,6 +39,5 @@ public class RequestPPJsonDto implements Serializable {
 
 	public void setInfo(InfoDto info) {
 		this.info = info;
-
 	}
 }
