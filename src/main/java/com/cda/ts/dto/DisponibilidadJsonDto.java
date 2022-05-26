@@ -1,21 +1,15 @@
 package com.cda.ts.dto;
 
-import java.io.Serializable;
+import java.util.List;
 
-public class RequestPPJsonDto implements Serializable {
+import com.cda.ts.model.PersonasDisponibilidades;
+
+public class DisponibilidadJsonDto {
 	private static final long serialVersionUID = 1L;
 
 	private HeaderDto header;
-	private PPRequestDto data;
+	private List<PersonasDisponibilidades> data;
 	private InfoDto info;
-
-	public RequestPPJsonDto() {
-		super();
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 
 	public HeaderDto getHeader() {
 		return header;
@@ -25,11 +19,11 @@ public class RequestPPJsonDto implements Serializable {
 		this.header = header;
 	}
 
-	public PPRequestDto getData() {
+	public List<PersonasDisponibilidades> getData() {
 		return data;
 	}
 
-	public void setData(PPRequestDto data) {
+	public void setData(List<PersonasDisponibilidades> data) {
 		this.data = data;
 	}
 
@@ -39,6 +33,11 @@ public class RequestPPJsonDto implements Serializable {
 
 	public void setInfo(InfoDto info) {
 		this.info = info;
-
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
 }

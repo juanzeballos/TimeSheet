@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cda.ts.dto.InfoDto;
 import com.cda.ts.dto.PPDto;
 import com.cda.ts.dto.PPJsonDto;
-import com.cda.ts.dto.RequestPPJsonDto;
+import com.cda.ts.dto.RequestStringJsonDto;
 import com.cda.ts.enumm.CodigosEstadoEnum;
 import com.cda.ts.service.ProyectoPersonaService;
 
@@ -31,7 +31,7 @@ public class ProyectoPersonaController {
 		return pps.getProyectoPersona(usuario);
 	}
 	@GetMapping("proyectoByUsuario")
-	public ResponseEntity<PPJsonDto> proyectoByUsuario(@RequestBody RequestPPJsonDto json) {
+	public ResponseEntity<PPJsonDto> proyectoByUsuario(@RequestBody RequestStringJsonDto json) {
 		PPJsonDto ppJsonDto = new PPJsonDto();
 		InfoDto responseInfo = new InfoDto("success", String.valueOf(CodigosEstadoEnum.OK.getCodigo()));
 		try {

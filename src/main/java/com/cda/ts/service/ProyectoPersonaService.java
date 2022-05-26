@@ -17,7 +17,6 @@ public class ProyectoPersonaService {
 	@Autowired
 	ProyectoDao proyectoDao;
 	List<PPDto> ppdtoList;
-	PPDto ppdto;
 	public List<PPDto> getProyectoPersona(String nombre) {
 		List<PPDto> ppdtoList = new ArrayList<PPDto>();
 		 List<Object[]> pp = proyectoPersonaDao.getProyectosByUsuario(nombre);
