@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cda.ts.dto.PPDto;
+import com.cda.ts.model.FaseProyecto;
+import com.cda.ts.model.ProyectoPersona;
 import com.cda.ts.repository.ProyectoDao;
 import com.cda.ts.repository.ProyectoPersonaDao;
 
@@ -16,25 +18,43 @@ public class ProyectoPersonaService {
 	ProyectoPersonaDao proyectoPersonaDao;
 	@Autowired
 	ProyectoDao proyectoDao;
-	List<PPDto> ppdtoList;
+
 	public List<PPDto> getProyectoPersona(String nombre) {
+
 		List<PPDto> ppdtoList = new ArrayList<PPDto>();
-		 List<Object[]> pp = proyectoPersonaDao.getProyectosByUsuario(nombre);
-		for (Object[] objects : pp) {
-			PPDto ppdto = new PPDto();
-			ppdto.setCodigo(objects[0].toString());
-			ppdto.setUsuario(objects[1].toString());
-			ppdto.setFechaDesde(objects[2] == null ? null : objects[2].toString());
-			ppdto.setFechaHasta(objects[3] == null ? null : objects[3].toString());
-			ppdto.setHorasTotales(objects[4].toString());
-			ppdto.setDescripcion(objects[5].toString());
-			ppdto.setAbreviatura(objects[6].toString());
-			ppdto.setLiderProyecto(objects[7].toString());
-			ppdtoList.add(ppdto);
+		
+		List<Object[]> proyectos = proyectoPersonaDao.getProyectosByUsuario(nombre);
+		for (Object[] objects : proyectos) {
+			PPDto proyectoDto = chargeProyectoPersona(objects);
+
+			ppdtoList.add(proyectoDto);
 		}
 		return ppdtoList;
 	}
 
+	private PPDto chargeProyectoPersona(Object[] objects) {
+		PPDto ppdto = new PPDto();
+		ppdto.setCodigo(objects[0].toString());
+		ppdto.setDescripcion(objects[1].toString());
+		ppdto.setUsuario(objects[2].toString());
+		ppdto.setHorasTotales(objects[3].toString());
+		ppdto.setLiderProyecto(objects[4].toString());
+		ppdto.setAbreviatura(objects[5].toString());
+		ppdto.setCliente( proyectoPersonaDao.getCliente(objects[6].toString()) );
+		
+		List<Object[]> fase = proyectoPersonaDao.getFaseByProyecto(ppdto.getCodigo());
+		for (Object[] object : fase) {
 
+			ppdto.setCodigoFase(object[0].toString());
+			ppdto.setFase(object[1].toString());
+			ppdto.setDescripcionFase(object[2].toString());
+		}
+		return ppdto;
+
+	}
+
+	public List<ProyectoPersona> getP() {
+		return proyectoPersonaDao.getPP();
+	}
 
 }

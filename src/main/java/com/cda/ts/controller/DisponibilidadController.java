@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cda.ts.dto.DisponibilidadJsonDto;
 import com.cda.ts.dto.InfoDto;
-import com.cda.ts.dto.PPJsonDto;
 import com.cda.ts.dto.RequestStringJsonDto;
 import com.cda.ts.enumm.CodigosEstadoEnum;
 import com.cda.ts.model.PersonasDisponibilidades;
