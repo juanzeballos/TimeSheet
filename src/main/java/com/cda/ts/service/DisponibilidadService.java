@@ -1,7 +1,5 @@
 package com.cda.ts.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,12 +7,12 @@ import com.cda.ts.model.PersonasDisponibilidades;
 import com.cda.ts.repository.DisponibilidadDao;
 
 @Service
-public class DisponibilidadesService {
+public class DisponibilidadService {
 	@Autowired
-	DisponibilidadDao dDao;
+	DisponibilidadDao disponibilidadDao;
 	
-	public List<PersonasDisponibilidades> getDisponibilidad(String usuario) {
-		return dDao.findByUsuario(usuario);
+	public PersonasDisponibilidades getDisponibilidad(String usuario) {
+		return disponibilidadDao.findByUsuario(usuario);
 	}
 	
 }

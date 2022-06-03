@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class Disponibilidad {
 	@Id
 	@Column(name = "ESD_CODIGO")
-	private Long codigo;
+	private Long codigo; 
 	@Column(name = "ESD_DESCRIPCION")
 	private String descripcion;
 	@Column(name = "ESD_HS_POR_SEMANA_DISP")
@@ -32,12 +32,14 @@ public class Disponibilidad {
 		this.descripcion = descripcion;
 	}
 
-	public String getSemanales() {
+	public String getHorasSemanales() {
 		return horasSemanales;
 	}
 
-	public void setSemanales(String horasSemanales) {
+	public void setHorasSemanales(String horasSemanales) {
 		this.horasSemanales = horasSemanales;
 	}
+
+	
 
 }
