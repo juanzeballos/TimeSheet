@@ -15,7 +15,8 @@ public interface ProyectoPersonaDao extends JpaRepository<ProyectoPersona, Long>
 	@Query(value = "SELECT   ppe.PPE_PROYECTO , p.PRO_DESCRIPCION, ppe.PPE_PERSONA,  ppe.PPE_TOTAL_HS_REALES,"
 			+ " p.PRO_PERSONA_LIDER, p.PRO_ABREVIATURA, p.PRO_EMPRESA_PRINCIPAL \r\n"
 			+ "  FROM PROYECTOS_FASES_PERSONAS as ppe , ePM_PROYECTOS p\r\n"
-			+ "  where PPE_PERSONA = ?1 AND p.PRO_CODIGO = ppe.PPE_PROYECTO and p.PRO_ESTADO = 37",
+			+ "  where PPE_PERSONA = ?1 AND p.PRO_CODIGO = ppe.PPE_PROYECTO and p.PRO_ESTADO = 37"
+			+ "order by ppe.PPE_PROYECTO DESC",
 			nativeQuery = true)
 	public List<Object[]> getProyectosByUsuario(@Param(value = "usuario") String usuario);
 	
