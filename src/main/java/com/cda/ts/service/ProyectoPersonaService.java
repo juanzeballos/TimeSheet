@@ -29,7 +29,15 @@ public class ProyectoPersonaService {
 
 			ppdtoList.add(proyectoDto);
 		}
+
+		List<Object[]> licencia = proyectoPersonaDao.getLicencia(nombre);
+		for (Object[] objects : licencia) {
+			PPDto proyectoDto = chargeProyectoPersona(objects);
+
+			ppdtoList.add(proyectoDto);
+		}
 		return ppdtoList;
+
 	}
 
 	private PPDto chargeProyectoPersona(Object[] objects) {
