@@ -21,7 +21,6 @@ public class Proyecto {
 
 	@Column(name = "PRO_PERSONA_LIDER")
 	private String liderProyecto;
-
 	
 	public Long getCodigo() {
 		return codigo;

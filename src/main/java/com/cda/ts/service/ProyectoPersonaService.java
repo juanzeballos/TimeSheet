@@ -24,41 +24,46 @@ public class ProyectoPersonaService {
 		List<PPDto> ppdtoList = new ArrayList<PPDto>();
 		
 		List<Object[]> proyectos = proyectoPersonaDao.getProyectosByUsuario(nombre);
+
 		for (Object[] objects : proyectos) {
 			PPDto proyectoDto = chargeProyectoPersona(objects);
 
 			ppdtoList.add(proyectoDto);
 		}
 
-		List<Object[]> licencia = proyectoPersonaDao.getLicencia(nombre);
-		for (Object[] objects : licencia) {
-			PPDto proyectoDto = chargeProyectoPersona(objects);
 
-			ppdtoList.add(proyectoDto);
-		}
+		// List<Object[]> licencia = proyectoPersonaDao.getLicencia(nombre);
+		// for (Object[] objects : licencia) {
+		// 	PPDto proyectoDto = chargeProyectoPersona(objects);
+
+		// 	ppdtoList.add(proyectoDto);
+		// }
 		return ppdtoList;
 
 	}
 
 	private PPDto chargeProyectoPersona(Object[] objects) {
+		
 		PPDto ppdto = new PPDto();
 		ppdto.setCodigo(objects[0].toString());
-		ppdto.setDescripcion(objects[1].toString());
-		ppdto.setUsuario(objects[2].toString());
-		ppdto.setHorasTotales(objects[3].toString());
-		ppdto.setLiderProyecto(objects[4].toString());
-		ppdto.setAbreviatura(objects[5].toString());
-		ppdto.setCliente( proyectoPersonaDao.getCliente(objects[6].toString()) );
+		ppdto.setDescripcion(objects[2].toString());
+		ppdto.setUsuario(objects[3].toString());
+		ppdto.setHorasTotales(objects[4].toString());
+		ppdto.setLiderProyecto(objects[5].toString());
+		ppdto.setAbreviatura(objects[6].toString());
+		ppdto.setCliente( proyectoPersonaDao.getCliente(objects[7].toString()) );
 		
-		List<Object[]> fase = proyectoPersonaDao.getFaseByProyecto(ppdto.getCodigo());
+		
+		List<Object[]> fase = proyectoPersonaDao.getFaseByProyecto(ppdto.getCodigo(), objects[1].toString());
+		
 		for (Object[] object : fase) {
-
-			ppdto.setCodigoFase(object[0].toString());
-			ppdto.setFase(object[1].toString());
-			ppdto.setDescripcionFase(object[2].toString());
+		ppdto.setCodigoFase(object[0].toString());
+		ppdto.setFase(object[1].toString());
+		ppdto.setDescripcionFase(object[2].toString());
 		}
-		return ppdto;
+		
 
+		return ppdto;
 	}
 
 	public List<ProyectoPersona> getP() {
